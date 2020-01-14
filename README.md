@@ -24,6 +24,13 @@ Use of single command on multiple Gui elements. In this one the command will fir
 * Note new event type used ("MouseEnter")
 * Since multiple elements of the Wpf (namely the window and he canvas) both use the same command, they both need thier DataContext set to teh same object. I moved this into a 'static resource' to allow both elements to reference this same instance.
 
+# Example 5
+Here a Property in the ViewModel is bound to a TextBlock. This allows data from the ViewModel to flow back to the window for display to the user.
+The count is incremented every time the command is fired.  
+
+For this to work we require the ViewModel to implement The INotifyPropertyChanged Interface; this interface requires us to add a simple event handler to the ViewModel class.
+If we want changes to the property to be reflected in the TextBlock, the every time this value is 'set' we must raise the appropriate event.
+
 # Supplemental Notes: 
 * In ALL of the example: I notice that as of this writing (1/14/2020) Visual Studio, in the XAML, sometimes will think there are errors in the code when there are not any (you will see blue squiggles under the XAML).  You may need to ignore these and just build/run. After a run these usually disappear
 * To go back to the tip from an tag: to Team Explorer->branches and double click on 'master' (until you do this you will be in 'detached head' mode)
