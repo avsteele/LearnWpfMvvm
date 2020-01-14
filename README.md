@@ -43,6 +43,7 @@ This MUST have
 * Property of type ICommand with public getter (if it is just a member field it won't work). Type of this can be Icommand OR any class implementing ICommand
 * The constructor constructs it with some Action delegate (message box pop up for example)
 ### Use NuGet to add "Microsoft.Xaml.Bahaviors.Wpf" to the project
+See  the official repo at https://github.com/microsoft/XamlBehaviorsWpf for some more advanced examples.
 ### Adjustments to the XAML
 1. Add `xmlns:i="http://schemas.microsoft.com/xaml/behaviors`  to the window
 2. Add a DataContext ofto the window consisting of an instance of thte ViewModel class
