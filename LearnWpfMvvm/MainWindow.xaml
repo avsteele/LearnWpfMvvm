@@ -12,7 +12,7 @@
     </Window.DataContext>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseLeftButtonDown">
-            <i:InvokeCommandAction Command="{Binding CommandOne}"/>
+            <i:InvokeCommandAction Command="{Binding CommandOne}" CommandParameter="100"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>

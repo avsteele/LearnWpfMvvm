@@ -8,6 +8,7 @@ namespace LearnWpfMvvm
     {
         private Action _action;
         private bool _canExecute = true;
+        private int _defaultTimeoutMs = 2000;
 
         public SimpleCommand(Action a)
         {
@@ -24,8 +25,14 @@ namespace LearnWpfMvvm
             if (CanExecute(o))
                 _action();
 
+            int nextTimeout = _defaultTimeoutMs;
+            if (int.TryParse(o as string, out int t))
+            {
+                nextTimeout = t;
+            }
+
             _canExecute = false; // Command is now disabled
-            var timer = new System.Timers.Timer(2000);
+            var timer = new System.Timers.Timer(nextTimeout);
             timer.Elapsed += (o, e) => _canExecute = true; // when time is up, set _canExecute back to true
             timer.AutoReset = false; // only do 'Elapsed' once when time i sup, not repeateedly
             timer.Enabled = true;
