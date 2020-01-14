@@ -7,14 +7,28 @@
         xmlns:local="clr-namespace:LearnWpfMvvm"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="Aqua">
+    <Window.Resources>
+        <local:MainWindowViewModel x:Key="ViewModel"/>
+    </Window.Resources>
     <Window.DataContext>
-        <local:MainWindowViewModel />
+        <Binding Source="{StaticResource ViewModel}"/>
     </Window.DataContext>
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="MouseLeftButtonDown">
-            <i:InvokeCommandAction Command="{Binding CommandOne}" CommandParameter="100"/>
+            <i:InvokeCommandAction Command="{Binding CommandOne}" CommandParameter="0"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
+        <Canvas DataContext="{StaticResource ViewModel}" Width="200" Height="200">
+            <Canvas.Background>
+                <SolidColorBrush Color="Gray" Opacity="1"/>
+            </Canvas.Background>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseEnter">
+                    <i:InvokeCommandAction Command="{Binding CommandOne}"  CommandParameter="2000"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Canvas>
     </Grid>
 </Window>

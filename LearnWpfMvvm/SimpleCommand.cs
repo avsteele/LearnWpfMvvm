@@ -31,11 +31,14 @@ namespace LearnWpfMvvm
                 nextTimeout = t;
             }
 
-            _canExecute = false; // Command is now disabled
-            var timer = new System.Timers.Timer(nextTimeout);
-            timer.Elapsed += (o, e) => _canExecute = true; // when time is up, set _canExecute back to true
-            timer.AutoReset = false; // only do 'Elapsed' once when time i sup, not repeateedly
-            timer.Enabled = true;
+            if(nextTimeout>0)
+            {
+                _canExecute = false; // Command is now disabled
+                var timer = new System.Timers.Timer(nextTimeout);
+                timer.Elapsed += (o, e) => _canExecute = true; // when time is up, set _canExecute back to true
+                timer.AutoReset = false; // only do 'Elapsed' once when time i sup, not repeateedly
+                timer.Enabled = true;
+            }
 
         }
 
