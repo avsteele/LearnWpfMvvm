@@ -20,6 +20,7 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
+        <TextBlock DataContext="{StaticResource ViewModel}" Text="{Binding Path=ExecutionCount, StringFormat=Executions: {0:D3}}" FontSize="24" FontFamily="Courier New"/>
         <Canvas DataContext="{StaticResource ViewModel}" Width="200" Height="200">
             <Canvas.Background>
                 <SolidColorBrush Color="Gray" Opacity="1"/> <!-- background must have a brush, or else no Commands execute -->
